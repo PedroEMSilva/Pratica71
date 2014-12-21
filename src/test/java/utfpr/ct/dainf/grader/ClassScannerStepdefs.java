@@ -458,7 +458,7 @@ public class ClassScannerStepdefs {
     @Given("^method <(.+)> returns type '(.+)'$")
     public void methodReturnsType(String methodVar, String typeName) throws Throwable {
         Method method = (Method)bsh.get(methodVar);
-        Class retType = method.getReturnType();
+        Class<?> retType = method.getReturnType();
         assertEquals(retType.getName(), typeName,
             String.format("Method '%s' does not return '%s'", method.getName(), typeName));
         Reporter.log(String.format("Method '%s' returns '%s'", method.getName(), typeName), true);
@@ -477,7 +477,7 @@ public class ClassScannerStepdefs {
     @Given("^method <(.+)> returns generic type '(.+)'$")
     public void methodReturnsGenericTypeAsString(String methodVar, String typeName) throws Throwable {
         Method method = (Method)bsh.get(methodVar);
-        Class rtype = method.getReturnType();
+        Class<?> rtype = method.getReturnType();
         assertTrue(method.toGenericString().contains(' ' + typeName + ' '),
             String.format("Method '%s' does not return '%s'", method.getName(), typeName));
         Reporter.log(String.format("Method '%s' returns '%s'", method.getName(), typeName), true);

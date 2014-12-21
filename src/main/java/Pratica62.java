@@ -40,8 +40,8 @@ public class Pratica62 {
         }
         int pos = Collections.binarySearch(jogadores, new Jogador(10, "Beltrano"), comparador);
         if (pos >= 0) {
-            System.out.println("Jogador encontrado:");
-            System.out.println(String.format(format, jogadores.get(pos).getNumero(), jogadores.get(pos).getNome()));
+            System.out.print("Jogador encontrado: ");
+            System.out.println(jogadores.get(pos));
         } else {
             System.out.println("Jogador não encontrado. Posição: " + (-pos-1));
         }
