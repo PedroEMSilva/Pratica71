@@ -16,6 +16,7 @@ public class Pratica71 {
 
     public static void main(String[] args) {
         int numero = 0;
+        int valido=1;
         int quer = 0;
         ArrayList<Jogador> timeco = new ArrayList<Jogador>();
         Time time = new Time();
@@ -26,6 +27,7 @@ public class Pratica71 {
         if (scanner.hasNextInt()) {
             numJogadores = scanner.nextInt();
         } else {
+            
             System.out.println("Digite um número válido!");
         }
         for (int i = 0; i < numJogadores; i++) {
@@ -33,13 +35,22 @@ public class Pratica71 {
             if (scanner.hasNext()) {
                 nome1 = scanner.next();
             } else {
-                System.out.println("Digite um nome!");
+               while(!scanner.hasNext()){
+                   System.out.println("Digite uma posicao valida");
+                   
+               }
+               nome1 = scanner.next();
             }
             System.out.println("Digite o numero do " + i + " jogador:  ");
             if (scanner.hasNextInt()) {
                 numero = scanner.nextInt();
             } else {
-                System.out.println("Digite um numero!");
+                
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Digite um numero!");
+                    scanner.next();
+                }
+                numero= scanner.nextInt();
             }
             timeco.add(new Jogador(numero, nome1));
 
@@ -57,7 +68,11 @@ public class Pratica71 {
         if (scanner.hasNextInt()) {
             quer = scanner.nextInt();
         } else {
-            System.out.println("Digite um numero!");
+            while (!scanner.hasNextInt()) {
+                    System.out.println("Digite um numero!");
+                    scanner.next();
+                }
+                numero= scanner.nextInt();
         }
         while (quer == 1) {
             System.out.println("Digite o numero do  jogador:  ");
