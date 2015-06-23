@@ -27,8 +27,11 @@ public class Pratica71 {
         if (scanner.hasNextInt()) {
             numJogadores = scanner.nextInt();
         } else {
-            
-            System.out.println("Digite um número válido!");
+           while (!scanner.hasNextInt()) {
+                    System.out.println("Digite um numero!");
+                    scanner.next();
+                }
+                numJogadores= scanner.nextInt();
         }
         for (int i = 0; i < numJogadores; i++) {
             System.out.println("Digite a posicao do " + i + " jogador:  ");
